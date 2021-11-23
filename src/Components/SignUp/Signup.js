@@ -31,7 +31,7 @@ const Signup = () => {
           />
           <TextField
             sx={{ m: 1.5 }}
-            value={state}
+            // value={state}
             onChange={handleChange}
             id="e-mail"
             label="E-mail"
