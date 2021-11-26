@@ -1,6 +1,14 @@
 import "./Signup.scss";
-import { FormGroup, Button, TextField, Typography } from "@mui/material";
+import {
+  FormGroup,
+  Button,
+  TextField,
+  Typography,
+  InputAdornment,
+} from "@mui/material";
 import { useState } from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Signup = () => {
   const [state, setState] = useState("");
@@ -18,17 +26,26 @@ const Signup = () => {
         <Typography align="left">Welcome, we are happy to have you</Typography>
         <FormGroup>
           <TextField
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <PersonIcon />
+                </InputAdornment>
+              ),
+            }}
             sx={{ m: 1.5 }}
             id="first-name"
             label="First Name"
             type="text"
           />
+
           <TextField
             sx={{ m: 1.5 }}
             id="last-name"
             label="Last Name"
             type="text"
           />
+
           <TextField
             sx={{ m: 1.5 }}
             // value={state}
@@ -52,12 +69,26 @@ const Signup = () => {
           />
 
           <TextField
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <RemoveRedEyeIcon />
+                </InputAdornment>
+              ),
+            }}
             sx={{ m: 1.5 }}
             id="outlined-password-input"
             label="Password"
             type="password"
           />
           <TextField
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <RemoveRedEyeIcon />
+                </InputAdornment>
+              ),
+            }}
             sx={{ m: 1.5 }}
             id="confirm-password-input"
             label="Confirm Password"
