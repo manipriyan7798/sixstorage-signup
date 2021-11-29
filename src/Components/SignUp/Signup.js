@@ -14,12 +14,12 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { useState } from "react";
 
 const Signup = () => {
-  const [state, setState] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
   function SubmitButton() {
-    if (state && lastName && email) {
+    if (firstName && lastName && email) {
       return (
         <Button variant="contained" className="active-btn">
           Sign Up
@@ -37,7 +37,7 @@ const Signup = () => {
   // function handleChange(e) {
   //   e.preventDefault();
 
-  //   setState(e.target.value);
+  //   setFirstName(e.target.value);
   // }
 
   return (
@@ -48,8 +48,8 @@ const Signup = () => {
         <FormGroup>
           <TextField
             sx={{ m: 1.5 }}
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             id="first-name"
             label="First Name"
             type="text"
