@@ -4,27 +4,38 @@
   background-color: white;
   margin: auto;
   margin-top: 50px;
-  -webkit-box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.67);
-  box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.47);
 
   .signup-container-text {
     padding: 20px;
     width: 70%;
     margin: auto;
 
+    input {
+      border: 0px;
+    }
+
+    .six-storage-MuiFormLabel-root {
+      // font-weight: 800;
+      color: #0e1b47;
+      font-size: 12px;
+    }
     h1 {
       text-align: left;
       color: rgb(27, 35, 141);
     }
 
-    button {
-      width: 40%;
-      margin: auto;
-      background-color: rgb(27, 35, 141);
+    .icon-clr {
+      color: #0e1b47;
     }
-  }
 
-  .signup-container label {
-    font-weight: bold;
+    .active-btn {
+      background-color: rgb(27, 35, 141);
+      margin: 12px;
+    }
+
+    .disable-btn {
+      background-color: grey !important;
+      margin: 12px;
+    }
   }
 }

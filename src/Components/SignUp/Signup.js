@@ -1,3 +1,4 @@
+import React from "react";
 import "./Signup.scss";
 import {
   FormGroup,
@@ -6,18 +7,38 @@ import {
   Typography,
   InputAdornment,
 } from "@mui/material";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { useState } from "react";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import PersonIcon from "@mui/icons-material/Person";
 
 const Signup = () => {
   const [state, setState] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
-  function handleChange(e) {
-    e.preventDefault();
-
-    setState(e.target.value);
+  function SubmitButton() {
+    if (state && lastName && email) {
+      return (
+        <Button variant="contained" className="active-btn">
+          Sign Up
+        </Button>
+      );
+    } else {
+      return (
+        <Button disabled className="disable-btn">
+          Sign Up
+        </Button>
+      );
+    }
   }
+
+  // function handleChange(e) {
+  //   e.preventDefault();
+
+  //   setState(e.target.value);
+  // }
 
   return (
     <div className="signup-container">
@@ -26,75 +47,106 @@ const Signup = () => {
         <Typography align="left">Welcome, we are happy to have you</Typography>
         <FormGroup>
           <TextField
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PersonIcon />
-                </InputAdornment>
-              ),
-            }}
             sx={{ m: 1.5 }}
+            value={state}
+            onChange={(e) => setState(e.target.value)}
             id="first-name"
             label="First Name"
             type="text"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <PersonOutlineIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
-
           <TextField
             sx={{ m: 1.5 }}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             id="last-name"
             label="Last Name"
             type="text"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <PersonOutlineIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
-
           <TextField
             sx={{ m: 1.5 }}
-            // value={state}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            // onChange={handleChange}
             id="e-mail"
             label="E-mail"
             type="email"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <MailOutlineIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
           <TextField
             sx={{ m: 1.5 }}
             id="confirm-email"
             label="Confirm Email"
             type="email"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <MailOutlineIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
           <TextField
             sx={{ m: 1.5 }}
             id="user-name"
-            value={state}
+            value={email}
             label="UserName"
             type="email"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <AccountCircleIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
 
           <TextField
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <RemoveRedEyeIcon />
-                </InputAdornment>
-              ),
-            }}
             sx={{ m: 1.5 }}
-            id="outlined-password-input"
+            id="password-input"
             label="Password"
             type="password"
-          />
-          <TextField
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <RemoveRedEyeIcon />
+                  <VisibilityOffIcon className="icon-clr" />
                 </InputAdornment>
               ),
             }}
+          />
+          <TextField
             sx={{ m: 1.5 }}
             id="confirm-password-input"
             label="Confirm Password"
             type="password"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <VisibilityOffIcon className="icon-clr" />
+                </InputAdornment>
+              ),
+            }}
           />
-          <Button variant="contained">Sign Up</Button>
+          <SubmitButton />
         </FormGroup>
       </div>
     </div>
